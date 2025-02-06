@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "seawater-underway-timeconst"
+name = "pyuwtc"
 version = "25.02.001"
 authors = [
     {name="Paul Covert", email="Paul.Covert@dfo-mpo.gc.ca"}
