@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "seawater-underway-timeconst"
+version = "25.02.001"
+authors = [
+    {name="Paul Covert", email="Paul.Covert@dfo-mpo.gc.ca"}
+]
+description = "Routines to calculate time lags and time averaging in oceanographic shipboard underway surface seawater lines."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "GPL-3.0"
+license-files = ["LICENSE"]
+
+[project.urls]
+Homepage = "https://github.com/paul-covert/seawater-underway-timeconst"
+Issues = "https://github.com/paul-covert/seawater-underway-timeconst/issues"
