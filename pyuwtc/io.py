@@ -4,7 +4,12 @@
 
 
 def read_tob(
-    filepath_or_buffer, date_col=0, time_col=1, temp_inlet_col=2, temp_lab_col=3
+    filepath_or_buffer,
+    date_col=0,
+    time_col=1,
+    temp_inlet_col=2,
+    temp_lab_col=3,
+    flow_tsg_col=9,
 ):
     """
     Loads the time and temperature columns from IOS Shell *.tob files.
@@ -26,6 +31,9 @@ def read_tob(
     temp_lab_col : integer (optional)
         Column (0-indexed) containing lab temperature values.
         Default is 3.
+    flow_tsg_col : integer (optional)
+        Column (0-indexed) containing TSG flow rate values.
+        Default is 9.
 
     Returns
     -------
@@ -46,8 +54,8 @@ def read_tob(
         df = pd.read_csv(
             f,
             sep="\s+",
-            usecols=[date_col, time_col, temp_inlet_col, temp_lab_col],
-            names=["date", "time", "temp_inlet", "temp_lab"],
+            usecols=[date_col, time_col, temp_inlet_col, temp_lab_col, flow_tsg_col],
+            names=["date", "time", "temp_inlet", "temp_lab", "flow_tsg"],
         )
 
         # convert date and time columns and set as index
