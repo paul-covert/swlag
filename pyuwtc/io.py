@@ -15,7 +15,7 @@ def read_tob(
         IOS Shell file containing the surface underway temperature
         data.
     date_col : integer (optional)
-        Column (0-indexed) containing date values. 
+        Column (0-indexed) containing date values.
         Default is 0.
     time_col : integer (optional)
         Column (0-indexed) containing time values.
@@ -24,19 +24,19 @@ def read_tob(
         Column (0-indexed) containing inlet temperature values.
         Default is 2.
     temp_lab_col : integer (optional)
-        Column (0-indexed) containing lab temperature values. 
+        Column (0-indexed) containing lab temperature values.
         Default is 3.
 
     Returns
     -------
     df : Pandas dataframe
         Time and temperature data from input file.
-        
+
     """
     import pandas as pd
-    
+
     with open(filepath_or_buffer) as f:
-                
+
         # scan file to end of header
         for line in f:
             if line.strip() == "*END OF HEADER":
@@ -49,10 +49,10 @@ def read_tob(
             usecols=[date_col, time_col, temp_inlet_col, temp_lab_col],
             names=["date", "time", "temp_inlet", "temp_lab"],
         )
-        
+
         # convert date and time columns and set as index
         df["datetime"] = pd.to_datetime(df["date"] + " " + df["time"])
         df.drop(columns=["date", "time"], inplace=True)
         df.set_index("datetime", inplace=True)
-        
+
     return df
