@@ -18,3 +18,4 @@ systems on Canadian Coast Guard vessels based at the Institute of Ocean
 Sciences in Sidney, BC."""
 
 from .io import read_tob
+from .meta import hello
