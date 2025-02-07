@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pyuwtc"
-version = "25.02.001"
+version = "25.02.1a1"
 authors = [
     {name="Paul Covert", email="Paul.Covert@dfo-mpo.gc.ca"}
 ]
@@ -14,6 +14,9 @@ requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
+    "Natural Language :: English",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Oceanography",
 ]
 license = "GPL-3.0"
 license-files = ["LICENSE"]
