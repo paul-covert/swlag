@@ -4,12 +4,11 @@
 
 version = "25.02.1a1"
 version_xy = "25.02"
-authorlist = [
-    "Covert, Paul A.",
-]
-authors = " and ".join(authorlist)
+copyright_year = "2025"
+authors = "Paul A. Covert"
 
 
 def hello():
     print("pyuwtc: Lag and averaging time constant calculation in Python.")
-    print("        Version {} :: doi:".format(version_xy)
+    print("        Version {} :: doi:".format(version_xy))
+    print("        (c) {} {}".format(copyright_year, authors))
