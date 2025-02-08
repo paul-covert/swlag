@@ -51,11 +51,12 @@ def read_tob(
                 break
 
         # use pandas to read the remaining file
-        df = pd.read_csv(
+        df = pd.read_csv( # change to read_fwf to better handle file format
             f,
             sep="\s+",
             usecols=[date_col, time_col, temp_inlet_col, temp_lab_col, flow_tsg_col],
             names=["date", "time", "temp_inlet", "temp_lab", "flow_tsg"],
+            na_values=["-99", "-99.0000"]
         )
 
         # convert date and time columns and set as index
