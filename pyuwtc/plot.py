@@ -19,12 +19,16 @@ def plot_tsg_flow(df):
 
     """
     import matplotlib.pyplot as plt
+    import matplotlib.dates as mdates
 
-    fig, ax = plt.subplots(ncols=1, nrows=1)
+    fig, ax = plt.subplots(ncols=1, nrows=1, layout="constrained")
     ax.plot(df.index, df["flow_tsg"], "-")
+    ax.xaxis.set_major_formatter(
+        mdates.ConciseDateFormatter(ax.xaxis.get_major_locator())
+    )
     ax.set_xlabel("Sampling date & time")
     ax.set_ylabel("Flow / L min$^{-1}$")
-    
+
     return fig, ax
 
 
@@ -53,8 +57,9 @@ def plot_temp(df, inlet=True, lab=True, transformed=True):
 
     """
     import matplotlib.pyplot as plt
+    import matplotlib.dates as mdates
 
-    fig, ax = plt.subplots(ncols=1, nrows=1)
+    fig, ax = plt.subplots(ncols=1, nrows=1, layout="constrained")
     if inlet:
         ln = ax.plot(df.index, df["temp_inlet"], linestyle="-", label="Inlet")
     if lab:
@@ -67,6 +72,9 @@ def plot_temp(df, inlet=True, lab=True, transformed=True):
             color=ln[0].get_color(),
             label="Transformed",
         )
+    ax.xaxis.set_major_formatter(
+        mdates.ConciseDateFormatter(ax.xaxis.get_major_locator())
+    )
     ax.legend()
     ax.set_xlabel("Sampling date & time")
     ax.set_ylabel("Temperature / $^\circ$C")
