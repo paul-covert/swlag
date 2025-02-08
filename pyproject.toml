@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "pyuwtc"
+name = "swlag"
 version = "25.02.1a1"
 authors = [
     {name="Paul Covert", email="Paul.Covert@dfo-mpo.gc.ca"}
