@@ -1,3 +1,8 @@
+# pyuwtc: Lag and averaging time constant calculation in Python.
+# Copyright (C) 2025  Paul A. Covert (GNU GPLv3)
+"""Calculate transformed inlet temperatures and error functions"""
+
+
 def _check_timeseries_spacing(df):
     """Ensure monotonically increasing time"""
     import numpy as np
@@ -19,4 +24,5 @@ def errfunc(Tinlet, Tlab):
 
 
 def calc_time_consts(Tinlet, Tlab, dt0, dT0, tau0):
+    return
     
