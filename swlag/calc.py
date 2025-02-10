@@ -18,11 +18,7 @@ def transform_inlet_temp(T, dt, dT, tau):
     return T_prime
 
 
-def errfunc(Tinlet, Tlab):
-    Tinlet_prime = transform_inlet_temp(T, dt, dT, tau)
+def errfunc(Tinlet, Tlab, dt, dT, tau):
+    Tinlet_prime = transform_inlet_temp(Tinlet, dt, dT, tau)
     return ((Tlab - Tinlet) ** 2).sum()
-
-
-def calc_time_consts(Tinlet, Tlab, dt0, dT0, tau0):
-    return
     
