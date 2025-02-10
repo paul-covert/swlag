@@ -40,9 +40,11 @@ Update an existing installation:
 ## Documentation
 
 The top-level API is loaded upon importing the swlag package.
-'''python
+
+```python
     import swlag as lag
-'''
+```
+
 swlag expects the inlet and lab temperatures to be in a pandas Dataframe with a corresponding time index.  A convenience function is included for loading underway data from Fisheries and Oceans Canada's Institute of Ocean Sciences data archive.
 
     lag.read_tob(*fname*)
