@@ -30,5 +30,8 @@ Gaps in data.  Time lag calculations rely on data with a monotonically increasin
 
 ## About
 
+swlag is maintained by Dr. Paul Covert at [Fisheries and Oceans Canada]'s [Institute of Ocean Sciences].
+
 ## License
 
+swlag is licensed under the [GNU General Public License version 3 (GPLv3)](https://www.gnu.org/licenses/gpl-3.0.en.html).
