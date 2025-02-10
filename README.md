@@ -19,9 +19,13 @@
 
 ## Introduction
 
-**swlag** is numerical package designed to calculate the travel time of water from the inlet of a research vessel's underwater seawater line to the lab.  Originally implemented for use with data collected from "The Loop" aboard the Canadian Coast Guard Vessel *John P. Tully*, this code can be used for any underway seawater line that has temperature sensors at both the inlet and outlet (laboratory) ends of the line.
+**swlag** is numerical package designed to calculate the travel time of water from the inlet of a research vessel's underway seawater line to the lab.  Underway seawater lines are commonly installed on oceanographic research vessels to enable mapping of surface water properties.  The core measurements are temperature (*T*) and salinity (*S*).  Instruments to measure additional properties, such as chlorophyll-*a* fluorescence and CO<sub>2</sub> partial pressure, are also commonly attached to the seawater line.  When paired with ship's GPS data, maps of these surface seawater properties can be made.
 
-Knowledge of these parameters can be used to accurately place measurements from the Loop in both geographic and temperature-salinity space.
+It is important to recognize that it takes a finite amount of time for the seawater to flow from the inlet in the ship's hull to the outlet in the lab.  As a result, the time at which an analysis in the lab was made is later than the time at which the analyzed water entered the seawater line.  Knowledge of these parameters can be used to accurately place measurements from the Loop in both geographic and temperature-salinity space.
+
+Originally implemented for use with data collected from "The Loop" aboard the Canadian Coast Guard Vessel *John P. Tully*, this code can be used for any underway seawater line that has temperature sensors at both the inlet and outlet (laboratory) ends of the line.
+
+
 
 ## Installation
 
