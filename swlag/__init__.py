@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """Calculate lag and averaging time constants for surface underway seawater
-systems on Canadian Coast Guard vessels based at the Institute of Ocean 
+systems on Canadian Coast Guard vessels based at the Institute of Ocean
 Sciences in Sidney, BC."""
 
 from .io import read_tob
