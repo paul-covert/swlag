@@ -19,13 +19,13 @@
 
 ## Introduction
 
-**swlag** is numerical package designed to calculate the travel time of water from the inlet of a research vessel's underway seawater line to the lab.  Underway seawater lines are commonly installed on oceanographic research vessels to enable mapping of surface water properties.  The core measurements are temperature (*T*) and salinity (*S*).  Instruments to measure additional properties, such as chlorophyll-*a* fluorescence and CO<sub>2</sub> partial pressure, are also commonly attached to the seawater line.  When paired with ship's GPS data, maps of these surface seawater properties can be made.
+**swlag** is numerical package, written in Python, to calculate the travel time of water from the inlet of a research vessel's underway seawater line to the lab.  
+
+Seawater underway lines are commonly installed on oceanographic research vessels to enable sampling and analyis of surface seawater while the vessel is in transit.  The core measurements are temperature (*T*) and salinity (*S*).  Instruments to measure additional properties, such as chlorophyll-*a* fluorescence and CO<sub>2</sub> partial pressure, are also commonly attached to the seawater line.  When paired with ship's GPS data, maps of these surface seawater properties can be made.
 
 It is important to recognize that it takes a finite amount of time for the seawater to flow from the inlet in the ship's hull to the outlet in the lab.  As a result, the time at which an analysis was made in the lab was made is not the same as the time at which the analyzed water entered the seawater line.  Without correcting for the travel time, a spatial and temporal bias in imparted to the analytical data.  There is also mixing along the seawater line.  Flow rate and total volume of the seawater line impact the extent of mixing.  Knowledge of these parameters can be used to accurately place measurements from the Loop in both geographic and temperature-salinity space.
 
 Originally implemented for use with data collected from "The Loop" aboard the Canadian Coast Guard Vessel *John P. Tully*, this code can be used for any underway seawater line that has temperature sensors at both the inlet and outlet (laboratory) ends of the line.
-
-
 
 ## Installation
 
@@ -38,6 +38,12 @@ Update an existing installation:
     pip install swlag --upgrade --no-cache-dir
 
 ## Documentation
+
+The top-level API is loaded upon importing the swlag package.
+
+    import swlag as lag
+
+
 Gaps in data.  Time lag calculations rely on data with a monotonically increasing time coordinate.  There is no functionality built in to the package to adapt to data that aren't monotically increasing.  This will need to be taken care of by the user.  Strategies could include interpolation of the temperature data in cases of short gaps, or splitting the time-series into segments that are continuous in cases of long gaps.
 
 ## Basic use
