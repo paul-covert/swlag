@@ -43,6 +43,9 @@ The top-level API is loaded upon importing the swlag package.
 
     import swlag as lag
 
+swlag expects the inlet and lab temperatures to be in a pandas Dataframe with a corresponding time index.  A convenience function is included for loading underway data from Fisheries and Oceans Canada's Institute of Ocean Sciences data archive.
+
+    lag.read_tob(*fname*)
 
 Gaps in data.  Time lag calculations rely on data with a monotonically increasing time coordinate.  There is no functionality built in to the package to adapt to data that aren't monotically increasing.  This will need to be taken care of by the user.  Strategies could include interpolation of the temperature data in cases of short gaps, or splitting the time-series into segments that are continuous in cases of long gaps.
 
