@@ -1,4 +1,4 @@
-# pyuwtc: Lag and averaging time constant calculation in Python.
+# swlag: Lag and averaging time constant calculation in Python.
 # Copyright (C) 2025  Paul A. Covert (GNU GPLv3)
 """Define metadata about pyuwtc."""
 
@@ -9,6 +9,6 @@ authors = "Paul A. Covert"
 
 
 def hello():
-    print("pyuwtc: Lag and averaging time constant calculation in Python.")
-    print("        Version {} :: doi:".format(version_xy))
-    print("        (c) {} {}".format(copyright_year, authors))
+    print("swlag: Lag and averaging time constant calculation in Python.")
+    print("       Version {} :: doi:".format(version_xy))
+    print("       (c) {} {}".format(copyright_year, authors))

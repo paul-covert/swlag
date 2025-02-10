@@ -1,4 +1,4 @@
-# pyuwtc: Lag and averaging time constant calculation in Python.
+# swlag: Lag and averaging time constant calculation in Python.
 # Copyright (C) 2025  Paul A. Covert (GNU GPLv3)
 """Calculate transformed inlet temperatures and error functions"""
 
