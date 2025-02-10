@@ -1,7 +1,7 @@
 import pandas as pd
 import swlag as lag
 
-fname = "./data/2023-026-20230827.tob"
+fname = "tests/data/example.tob"
 df = lag.read_tob(fname)
 
 def test_read_tob():

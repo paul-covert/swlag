@@ -11,6 +11,11 @@ authors = [
 description = "Routines to calculate time lags and time averaging in oceanographic shipboard underway surface seawater lines."
 readme = "README.md"
 requires-python = ">=3.8"
+dependencies = [
+    "scipy",
+    "pandas",
+    "matplotlib"
+]
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
