@@ -31,11 +31,15 @@ Originally implemented for use with data collected from "The Loop" aboard the Ca
 
 Install from the [Python Package Index](https://pypi.org/project/swlag/):
 
-    pip install swlag
+```sh
+pip install swlag
+```
 
 Update an existing installation:
 
-    pip install swlag --upgrade --no-cache-dir
+```sh
+pip install swlag --upgrade --no-cache-dir
+```
 
 ## Documentation
 
