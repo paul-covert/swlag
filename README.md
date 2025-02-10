@@ -30,7 +30,7 @@ Gaps in data.  Time lag calculations rely on data with a monotonically increasin
 
 ## About
 
-swlag is maintained by Dr. Paul Covert at [Fisheries and Oceans Canada]'s [Institute of Ocean Sciences].
+swlag is maintained by Dr. Paul Covert at [Fisheries and Oceans Canada](https://www.dfo-mpo.gc.ca)'s [Institute of Ocean Sciences](https://science.gc.ca/site/science/en/educational-resources/marine-and-freshwater-sciences/institute-ocean-sciences).
 
 ## License
 
