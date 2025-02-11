@@ -42,6 +42,7 @@ def read_tob(
 
     """
     import pandas as pd
+    import requests
 
     with open(filepath_or_buffer) as f:
 
