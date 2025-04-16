@@ -88,6 +88,30 @@ def _errfunc(Tinlet, Tlab, dt, dT, tau):
     return sumsq
 
 
+def estimate_time_consts(Tinlet, Tlab, freq=1.0):
+    """
+    Calculate, by minimization of error function, the best
+    fit time constants to transform Tinlet to Tlab.
+    
+    Parameters
+    ----------
+    Tinlet : 1-d array
+        Inlet temperature series.
+    Tlab : 1-d array
+        Lab temperature series.
+    freq : float
+        Sampling frequency (Hz)
+        Default is 1.0.
+        
+    Returns
+    -------
+    dt : float
+        Time offset in seconds.
+    dT : float
+        Temperature offset in seconds.
+    tau : int
+        Window width in seconds.
 
-
-
+    """
+    
+    return dt, dT, tau
