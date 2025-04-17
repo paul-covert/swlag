@@ -16,4 +16,3 @@ def test_read_tob_remote():
     
     
 test_read_tob_local()
-#test_read_tob_remote()
