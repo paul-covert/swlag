@@ -10,7 +10,7 @@ def _transform_inlet_tracer(y, dt, dy, tau):
     
     Parameters
     ----------
-    y : 1-d numpy array or Pandas Series
+    y : Pandas Series
         Tracer series to be transformed.
     dt : float
         Constant representing the timelag of the loop system.
@@ -28,11 +28,11 @@ def _transform_inlet_tracer(y, dt, dy, tau):
         
     """
     
-    T_prime = T.shift(int(dt / 5))
-    T_prime = T_prime.rolling(int(tau / 5), center=False).mean()
-    T_prime = T_prime + dT
+    y_prime = y.shift(int(dt / 5))
+    y_prime = y_prime.rolling(int(tau / 5), center=False).mean()
+    y_prime = y_prime + dy
     
-    return T_prime
+    return y_prime
 
 
 def _errfunc(y, y_prime, dt, dy, tau):
@@ -41,9 +41,9 @@ def _errfunc(y, y_prime, dt, dy, tau):
     
     Parameters
     ----------
-    y : 1-d numpy array or Pandas Series
+    y : Pandas Series
         Input tracer series
-    y_prime : 1-d numpy array or Pandas Series
+    y_prime : Pandas Series
         Transformed tracer series
     dt : float
         Constant representing the timelag of the loop system.
@@ -66,23 +66,38 @@ def _errfunc(y, y_prime, dt, dy, tau):
     return sumsq
 
 
-def estimate_time_consts(y_inlet, y_lab, freq=1.0):
+def estimate_time_consts(
+    y_inlet, 
+    y_lab, 
+    freq=1.0, 
+    dt0=None,
+    dy0=None,
+    tau0=None
+):
     """
     Calculate, by minimization of error function, the best
     fit time constants to transform a tracer signal (e.g. 
     temperature, salinity, dye, etc.) measured at the inlet
     to the tracer signal measured in the lab.
     
-    
     Parameters
     ----------
-    y_inlet : 1-d array
+    y_inlet : Pandas Series
         Inlet tracer series.
-    y_lab : 1-d array
+    y_lab : Pandas Series
         Lab tracer series.
-    freq : float
+    freq : float (optional)
         Sampling frequency (Hz)
         Default is 1.0.
+    dt0 : float (optional)
+        Initial guess for dt.
+        Default is None.
+    dy0 : float (optional)
+        Initial guess for dy.
+        Default is None.
+    tau0 : float (optional)
+        Initial guess for tau.
+        Default is None.
         
     Returns
     -------
