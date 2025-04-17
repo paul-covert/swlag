@@ -18,6 +18,6 @@ systems on Canadian Coast Guard vessels based at the Institute of Ocean
 Sciences in Sidney, BC."""
 
 from .io import read_tob
-from .calc import transform_inlet_temp
+from .calc import estimate_time_consts
 from .plot import plot_tsg_flow, plot_temp
 from .meta import hello
