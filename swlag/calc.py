@@ -34,22 +34,22 @@ def _transform_inlet_temp(T, dt, dT, tau):
     return T_prime
 
 
-def _errfunc(Tinlet, Tlab, dt, dT, tau):
+def _errfunc(tracer_inlet, tracer_lab, dt, dy, tau):
     """
     Error function used in minimization function.
     
     Parameters
     ----------
-    Tinlet : 1-d array
-        Inlet temperature series.
-    Tlab : 1-d array
-        Lab temperature series.
+    tracer_inlet : 1-d array
+        Inlet tracer series
+    tracer_lab : 1-d array
+        Lab tracer series
     dt : float
-        Time offset in seconds.
-    dT : float
-        Temperature offset in seconds.
+        Time offset in seconds
+    dy : float
+        Tracer offset
     tau : int
-        Window width in seconds.
+        Window width in seconds
     
     Returns
     -------
@@ -58,23 +58,26 @@ def _errfunc(Tinlet, Tlab, dt, dT, tau):
     
     """
     
-    Tinlet_prime = _transform_inlet_temp(Tinlet, dt, dT, tau)
-    sumsq = ((Tlab - Tinlet) ** 2).sum()
+    tracer_inlet_prime = _transform_inlet_temp(tracer_inlet, dt, dy, tau)
+    sumsq = ((tracer_lab - tracer_inlet_prime) ** 2).sum()
     
     return sumsq
 
 
-def estimate_time_consts(Tinlet, Tlab, freq=1.0):
+def estimate_time_consts(tracer_inlet, tracer_lab, freq=1.0):
     """
     Calculate, by minimization of error function, the best
-    fit time constants to transform Tinlet to Tlab.
+    fit time constants to transform a tracer signal (e.g. 
+    temperature, salinity, dye, etc.) measured at the inlet
+    to the tracer signal measured in the lab.
+    
     
     Parameters
     ----------
-    Tinlet : 1-d array
-        Inlet temperature series.
-    Tlab : 1-d array
-        Lab temperature series.
+    tracer_inlet : 1-d array
+        Inlet tracer series.
+    tracer_lab : 1-d array
+        Lab tracer series.
     freq : float
         Sampling frequency (Hz)
         Default is 1.0.
@@ -83,11 +86,11 @@ def estimate_time_consts(Tinlet, Tlab, freq=1.0):
     -------
     dt : float
         Time offset in seconds.
-    dT : float
-        Temperature offset in seconds.
+    dy : float
+        Tracer offset.
     tau : int
         Window width in seconds.
 
     """
     
-    return dt, dT, tau
+    return dt, dy, tau
