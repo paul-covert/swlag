@@ -8,6 +8,3 @@ def test_transform():
     df = pd.read_csv(path)
     df["temp_inlet_prime"] = swl.calc._transform_inlet_tracer(df["temp_inlet"], 400., 0.3, 370.)
     assert isinstance(df["temp_inlet_prime"], pd.Series)
-
-
-test_transform()
