@@ -4,7 +4,7 @@ import swlag as swl
 
 def test_read_tob_local():
     """Does read_tob() return a valid pandas DataFrame?"""
-    path = "tests/data/example.tob"
+    path = "tests/data/2023-026-20230827.tob"
     df = swl.read_tob(path)
     assert isinstance(df, pd.DataFrame)
 
@@ -15,5 +15,5 @@ def test_read_tob_remote():
     assert isinstance(df, pd.DataFrame)
     
     
-#test_read_tob_local()
+test_read_tob_local()
 test_read_tob_remote()
