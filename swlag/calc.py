@@ -116,5 +116,9 @@ def estimate_time_consts(
     # For execution efficiency, suggest mandating an initial guess
     # and using a simple steepest descent.  If needed, could use
     # brute.
-    
+
+    # remove when function is complete
+    dt = 0.0
+    dy = 0.0
+    tau = 0.0
     return dt, dy, tau
