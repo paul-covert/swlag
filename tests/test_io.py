@@ -15,5 +15,5 @@ def test_read_tob_remote():
     assert isinstance(df, pd.DataFrame)
     
     
-test_read_tob_local()
+#test_read_tob_local()
 test_read_tob_remote()
