@@ -28,8 +28,8 @@ def _transform_inlet_tracer(y, dt, dy, tau):
         
     """
     
-    y_prime = y.shift(int(dt / 5))
-    y_prime = y_prime.rolling(int(tau / 5), center=False).mean()
+    y_prime = y.shift(int(dt))
+    y_prime = y_prime.rolling(int(tau), center=False).mean()
     y_prime = y_prime + dy
     
     return y_prime
@@ -111,5 +111,10 @@ def estimate_time_consts(
         width of the averaging window in seconds.
 
     """
+    
+    # Need to test various minimization approaches within scipy
+    # For execution efficiency, suggest mandating an initial guess
+    # and using a simple steepest descent.  If needed, could use
+    # brute.
     
     return dt, dy, tau
