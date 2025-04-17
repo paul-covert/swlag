@@ -60,7 +60,7 @@ def _errfunc(y, y_prime, dt, dy, tau):
     
     """
     
-    y_prime = _transform_inlet_temp(y, dt, dy, tau)
+    y_prime = _transform_inlet_tracer(y, dt, dy, tau)
     sumsq = ((y - y_prime) ** 2).sum()
     
     return sumsq
