@@ -37,12 +37,11 @@ def read_tob(
 
     Returns
     -------
-    df : Pandas dataframe
+    df : Polars dataframe
         Time and temperature data from input file.
 
     """
-    import pandas as pd
-    import requests
+    import polars as pl
 
     with open(filepath_or_buffer) as f:
 
@@ -51,18 +50,23 @@ def read_tob(
             if line.strip() == "*END OF HEADER":
                 break
 
-        # use pandas to read the remaining file
-        df = pd.read_csv(  # change to read_fwf to better handle file format
+        # use Polars to read the remaining file
+        df = pl.read_csv(
             f,
-            sep='\s+',
-            usecols=[date_col, time_col, temp_inlet_col, temp_lab_col, flow_tsg_col],
-            names=["date", "time", "temp_inlet", "temp_lab", "flow_tsg"],
-            na_values=["-99", "-99.0000"],
+            separator=" ",
+            columns=[date_col, time_col, temp_inlet_col, temp_lab_col, flow_tsg_col],
+            new_columns=["date", "time", "temp_inlet", "temp_lab", "flow_tsg"],
+            null_values=["-99", "-99.0000"]
         )
 
-        # convert date and time columns and set as index
-        df["datetime"] = pd.to_datetime(df["date"] + " " + df["time"])
-        df.drop(columns=["date", "time"], inplace=True)
-        df.set_index("datetime", inplace=True)
+        # convert date and time columns
+        df.with_columns(
+            pl.concat_str(
+                [pl.col("date"), pl.col("time")],
+                separator=" "
+            ).alias("datetime")
+        )
+        df.select("datetime").to_datetime()
+        df.drop(["date", "time"])
 
     return df
